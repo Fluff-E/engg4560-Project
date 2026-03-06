@@ -27,8 +27,8 @@ on the Quartus Prime software download page.
 	(port
 		(pt 0 32)
 		(input)
-		(text "sel[1..0]" (rect 0 0 29 12)(font "Arial" ))
-		(text "sel[1..0]" (rect 21 27 50 39)(font "Arial" ))
+		(text "sel[2..0]" (rect 0 0 30 12)(font "Arial" ))
+		(text "sel[2..0]" (rect 21 27 51 39)(font "Arial" ))
 		(line (pt 0 32)(pt 16 32)(line_width 3))
 	)
 	(port

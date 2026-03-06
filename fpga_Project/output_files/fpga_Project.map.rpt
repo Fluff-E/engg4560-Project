@@ -1,5 +1,5 @@
 Analysis & Synthesis report for fpga_Project
-Tue Mar  3 19:37:39 2026
+Thu Mar  5 23:03:39 2026
 Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 
 
@@ -14,14 +14,15 @@ Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis IP Cores Summary
-  9. Registers Removed During Synthesis
- 10. Removed Registers Triggering Further Register Optimizations
- 11. General Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for User Entity Instance: pll:inst2|pll_0002:pll_inst|altera_pll:altera_pll_i
- 14. Post-Synthesis Netlist Statistics for Top Partition
- 15. Elapsed Time Per Partition
- 16. Analysis & Synthesis Messages
+  9. Logic Cells Representing Combinational Loops
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: pll:inst2|pll_0002:pll_inst|altera_pll:altera_pll_i
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
 
 
 
@@ -48,13 +49,13 @@ on the Quartus Prime software download page.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Mar  3 19:37:39 2026           ;
+; Analysis & Synthesis Status     ; Successful - Thu Mar  5 23:03:39 2026           ;
 ; Quartus Prime Version           ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
 ; Revision Name                   ; fpga_Project                                    ;
 ; Top-level Entity Name           ; fpga_Project                                    ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 42                                              ;
+; Total registers                 ; 19                                              ;
 ; Total pins                      ; 67                                              ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 0                                               ;
@@ -177,14 +178,13 @@ on the Quartus Prime software download page.
 +----------------------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path             ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                                                   ; Library ;
 +----------------------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+---------+
+; ../Verilog_srcs/test_status_ctrl.v           ; yes             ; User Verilog HDL File              ; C:/Users/keric/OneDrive/Documents/U of G/Winter 2026/Embed 4560/Project/Project_Main/Verilog_srcs/test_status_ctrl.v           ;         ;
 ; ../Verilog_srcs/fpga_top.v                   ; yes             ; User Verilog HDL File              ; C:/Users/keric/OneDrive/Documents/U of G/Winter 2026/Embed 4560/Project/Project_Main/Verilog_srcs/fpga_top.v                   ;         ;
 ; ../Verilog_srcs/ctrl.v                       ; yes             ; User Verilog HDL File              ; C:/Users/keric/OneDrive/Documents/U of G/Winter 2026/Embed 4560/Project/Project_Main/Verilog_srcs/ctrl.v                       ;         ;
-; ../Verilog_srcs/simple_counter.v             ; yes             ; User Verilog HDL File              ; C:/Users/keric/OneDrive/Documents/U of G/Winter 2026/Embed 4560/Project/Project_Main/Verilog_srcs/simple_counter.v             ;         ;
 ; ../Verilog_srcs/Hex6to7seg.v                 ; yes             ; User Verilog HDL File              ; C:/Users/keric/OneDrive/Documents/U of G/Winter 2026/Embed 4560/Project/Project_Main/Verilog_srcs/Hex6to7seg.v                 ;         ;
 ; ../Verilog_srcs/test_regs/test_instruction.v ; yes             ; User Verilog HDL File              ; C:/Users/keric/OneDrive/Documents/U of G/Winter 2026/Embed 4560/Project/Project_Main/Verilog_srcs/test_regs/test_instruction.v ;         ;
 ; ../Verilog_srcs/test_regs/test_status.v      ; yes             ; User Verilog HDL File              ; C:/Users/keric/OneDrive/Documents/U of G/Winter 2026/Embed 4560/Project/Project_Main/Verilog_srcs/test_regs/test_status.v      ;         ;
 ; ../Verilog_srcs/test_regs/test_data_to.v     ; yes             ; User Verilog HDL File              ; C:/Users/keric/OneDrive/Documents/U of G/Winter 2026/Embed 4560/Project/Project_Main/Verilog_srcs/test_regs/test_data_to.v     ;         ;
-; ../Verilog_srcs/test_regs/test_data_from.v   ; yes             ; User Verilog HDL File              ; C:/Users/keric/OneDrive/Documents/U of G/Winter 2026/Embed 4560/Project/Project_Main/Verilog_srcs/test_regs/test_data_from.v   ;         ;
 ; fpga_Project.bdf                             ; yes             ; User Block Diagram/Schematic File  ; C:/Users/keric/OneDrive/Documents/U of G/Winter 2026/Embed 4560/Project/Project_Main/fpga_Project/fpga_Project.bdf             ;         ;
 ; pll.v                                        ; yes             ; User Wizard-Generated File         ; C:/Users/keric/OneDrive/Documents/U of G/Winter 2026/Embed 4560/Project/Project_Main/fpga_Project/pll.v                        ; pll     ;
 ; pll/pll_0002.v                               ; yes             ; User Verilog HDL File              ; C:/Users/keric/OneDrive/Documents/U of G/Winter 2026/Embed 4560/Project/Project_Main/fpga_Project/pll/pll_0002.v               ; pll     ;
@@ -197,16 +197,16 @@ on the Quartus Prime software download page.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimate of Logic utilization (ALMs needed) ; 41          ;
+; Estimate of Logic utilization (ALMs needed) ; 22          ;
 ;                                             ;             ;
-; Combinational ALUT usage for logic          ; 74          ;
+; Combinational ALUT usage for logic          ; 39          ;
 ;     -- 7 input functions                    ; 0           ;
-;     -- 6 input functions                    ; 3           ;
-;     -- 5 input functions                    ; 12          ;
-;     -- 4 input functions                    ; 26          ;
-;     -- <=3 input functions                  ; 33          ;
+;     -- 6 input functions                    ; 0           ;
+;     -- 5 input functions                    ; 20          ;
+;     -- 4 input functions                    ; 10          ;
+;     -- <=3 input functions                  ; 9           ;
 ;                                             ;             ;
-; Dedicated logic registers                   ; 42          ;
+; Dedicated logic registers                   ; 19          ;
 ;                                             ;             ;
 ; I/O pins                                    ; 67          ;
 ;                                             ;             ;
@@ -216,9 +216,9 @@ on the Quartus Prime software download page.
 ;     -- PLLs                                 ; 1           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; SW[1]~input ;
-; Maximum fan-out                             ; 25          ;
-; Total fan-out                               ; 457         ;
-; Average fan-out                             ; 1.82        ;
+; Maximum fan-out                             ; 23          ;
+; Total fan-out                               ; 319         ;
+; Average fan-out                             ; 1.65        ;
 +---------------------------------------------+-------------+
 
 
@@ -227,20 +227,19 @@ on the Quartus Prime software download page.
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------+------------------+--------------+
 ; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                               ; Entity Name      ; Library Name ;
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------+------------------+--------------+
-; |fpga_Project                      ; 74 (0)              ; 42 (0)                    ; 0                 ; 0          ; 67   ; 0            ; |fpga_Project                                                     ; fpga_Project     ; work         ;
-;    |fpga_top:inst4|                ; 50 (0)              ; 21 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |fpga_Project|fpga_top:inst4                                      ; fpga_top         ; work         ;
-;       |Hex6to7seg:hex6|            ; 34 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |fpga_Project|fpga_top:inst4|Hex6to7seg:hex6                      ; Hex6to7seg       ; work         ;
+; |fpga_Project                      ; 39 (0)              ; 19 (0)                    ; 0                 ; 0          ; 67   ; 0            ; |fpga_Project                                                     ; fpga_Project     ; work         ;
+;    |fpga_top:inst4|                ; 32 (0)              ; 19 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |fpga_Project|fpga_top:inst4                                      ; fpga_top         ; work         ;
+;       |Hex6to7seg:hex6|            ; 26 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |fpga_Project|fpga_top:inst4|Hex6to7seg:hex6                      ; Hex6to7seg       ; work         ;
 ;          |Hexto7seg:HEX_0|         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |fpga_Project|fpga_top:inst4|Hex6to7seg:hex6|Hexto7seg:HEX_0      ; Hexto7seg        ; work         ;
-;          |Hexto7seg:HEX_1|         ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |fpga_Project|fpga_top:inst4|Hex6to7seg:hex6|Hexto7seg:HEX_1      ; Hexto7seg        ; work         ;
+;          |Hexto7seg:HEX_1|         ; 6 (6)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |fpga_Project|fpga_top:inst4|Hex6to7seg:hex6|Hexto7seg:HEX_1      ; Hexto7seg        ; work         ;
 ;          |Hexto7seg:HEX_2|         ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |fpga_Project|fpga_top:inst4|Hex6to7seg:hex6|Hexto7seg:HEX_2      ; Hexto7seg        ; work         ;
-;          |Hexto7seg:HEX_4|         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |fpga_Project|fpga_top:inst4|Hex6to7seg:hex6|Hexto7seg:HEX_4      ; Hexto7seg        ; work         ;
-;          |Hexto7seg:HEX_5|         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |fpga_Project|fpga_top:inst4|Hex6to7seg:hex6|Hexto7seg:HEX_5      ; Hexto7seg        ; work         ;
-;       |ctrl:control_unit|          ; 16 (16)             ; 21 (21)                   ; 0                 ; 0          ; 0    ; 0            ; |fpga_Project|fpga_top:inst4|ctrl:control_unit                    ; ctrl             ; work         ;
+;          |Hexto7seg:HEX_4|         ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |fpga_Project|fpga_top:inst4|Hex6to7seg:hex6|Hexto7seg:HEX_4      ; Hexto7seg        ; work         ;
+;       |ctrl:control_unit|          ; 6 (6)               ; 19 (19)                   ; 0                 ; 0          ; 0    ; 0            ; |fpga_Project|fpga_top:inst4|ctrl:control_unit                    ; ctrl             ; work         ;
 ;    |pll:inst2|                     ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |fpga_Project|pll:inst2                                           ; pll              ; pll          ;
 ;       |pll_0002:pll_inst|          ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |fpga_Project|pll:inst2|pll_0002:pll_inst                         ; pll_0002         ; pll          ;
 ;          |altera_pll:altera_pll_i| ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |fpga_Project|pll:inst2|pll_0002:pll_inst|altera_pll:altera_pll_i ; altera_pll       ; work         ;
-;    |simple_counter:inst|           ; 21 (21)             ; 21 (21)                   ; 0                 ; 0          ; 0    ; 0            ; |fpga_Project|simple_counter:inst                                 ; simple_counter   ; work         ;
-;    |test_instruction:inst6|        ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |fpga_Project|test_instruction:inst6                              ; test_instruction ; work         ;
+;    |test_instruction:inst6|        ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |fpga_Project|test_instruction:inst6                              ; test_instruction ; work         ;
+;    |test_status:inst7|             ; 6 (6)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |fpga_Project|test_status:inst7                                   ; test_status      ; work         ;
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------+------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -254,28 +253,36 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------+--------------+---------+--------------+--------------+-------------------------+-----------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                           ;
-+---------------------------------------------------------------------+------------------------------------------------------------------------+
-; Register name                                                       ; Reason for Removal                                                     ;
-+---------------------------------------------------------------------+------------------------------------------------------------------------+
-; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[2..23]            ; Stuck at GND due to stuck port data_in                                 ;
-; fpga_top:inst4|ctrl:control_unit|fpga_instruction_meta[2..15]       ; Stuck at GND due to stuck port data_in                                 ;
-; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[2..23]            ; Stuck at GND due to stuck port data_in                                 ;
-; fpga_top:inst4|ctrl:control_unit|fpga_instruction_sync[2..15]       ; Stuck at GND due to stuck port data_in                                 ;
-; fpga_top:inst4|ctrl:control_unit|data_to_fpga_reg[3,7,15,19,23]     ; Merged with fpga_top:inst4|ctrl:control_unit|data_to_fpga_reg[11]      ;
-; fpga_top:inst4|ctrl:control_unit|data_from_fpga_reg[1..23]          ; Merged with fpga_top:inst4|ctrl:control_unit|data_from_fpga_reg[0]     ;
-; fpga_top:inst4|ctrl:control_unit|data_to_fpga_reg[8,12,17,21]       ; Merged with fpga_top:inst4|ctrl:control_unit|data_from_fpga_reg[0]     ;
-; fpga_top:inst4|ctrl:control_unit|data_to_fpga_reg[2,6,14,18,22]     ; Merged with fpga_top:inst4|ctrl:control_unit|data_to_fpga_reg[10]      ;
-; fpga_top:inst4|ctrl:control_unit|data_to_fpga_reg[1,4,5,9,13,16,20] ; Merged with fpga_top:inst4|ctrl:control_unit|data_to_fpga_reg[0]       ;
-; fpga_top:inst4|ctrl:control_unit|fpga_instruction_sync[1,19,20,22]  ; Merged with fpga_top:inst4|ctrl:control_unit|fpga_instruction_sync[17] ;
-; fpga_top:inst4|ctrl:control_unit|fpga_instruction_sync[18,21,23]    ; Merged with fpga_top:inst4|ctrl:control_unit|fpga_instruction_sync[16] ;
-; fpga_top:inst4|ctrl:control_unit|fpga_instruction_meta[1,19,20,22]  ; Merged with fpga_top:inst4|ctrl:control_unit|fpga_instruction_meta[17] ;
-; fpga_top:inst4|ctrl:control_unit|fpga_instruction_meta[18,21,23]    ; Merged with fpga_top:inst4|ctrl:control_unit|fpga_instruction_meta[16] ;
-; fpga_top:inst4|ctrl:control_unit|data_from_fpga_reg[0]              ; Stuck at GND due to stuck port data_in                                 ;
-; simple_counter:inst|counter_out[21..31]                             ; Lost fanout                                                            ;
-; Total Number of Removed Registers = 142                             ;                                                                        ;
-+---------------------------------------------------------------------+------------------------------------------------------------------------+
++------------------------------------------------------------+
+; Logic Cells Representing Combinational Loops               ;
++--------------------------------------------------------+---+
+; Logic Cell Name                                        ;   ;
++--------------------------------------------------------+---+
+; test_status:inst7|value~1                              ;   ;
+; Number of logic cells representing combinational loops ; 1 ;
++--------------------------------------------------------+---+
+Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                     ;
++--------------------------------------------------------------------+-------------------------------------------------------------------+
+; Register name                                                      ; Reason for Removal                                                ;
++--------------------------------------------------------------------+-------------------------------------------------------------------+
+; fpga_top:inst4|ctrl:control_unit|fpga_instruction_meta[2,4..6]     ; Stuck at GND due to stuck port data_in                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_instruction_sync[2,4..6]     ; Stuck at GND due to stuck port data_in                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[4..23]           ; Stuck at GND due to stuck port data_in                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[4..23]           ; Stuck at GND due to stuck port data_in                            ;
+; fpga_top:inst4|ctrl:control_unit|data_to_fpga_reg[8,12]            ; Stuck at GND due to stuck port data_in                            ;
+; fpga_top:inst4|ctrl:control_unit|data_from_fpga_reg[0..23]         ; Stuck at GND due to stuck port data_in                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_instruction_meta[7..23]      ; Stuck at GND due to stuck port data_in                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_instruction_sync[7..23]      ; Stuck at GND due to stuck port data_in                            ;
+; fpga_top:inst4|ctrl:control_unit|data_to_fpga_reg[17,21]           ; Stuck at GND due to stuck port data_in                            ;
+; fpga_top:inst4|ctrl:control_unit|data_to_fpga_reg[0,1,4,5,9,13,16] ; Merged with fpga_top:inst4|ctrl:control_unit|data_to_fpga_reg[20] ;
+; fpga_top:inst4|ctrl:control_unit|data_to_fpga_reg[3,7,15,19,23]    ; Merged with fpga_top:inst4|ctrl:control_unit|data_to_fpga_reg[11] ;
+; fpga_top:inst4|ctrl:control_unit|data_to_fpga_reg[2,6,14,18,22]    ; Merged with fpga_top:inst4|ctrl:control_unit|data_to_fpga_reg[10] ;
+; Total Number of Removed Registers = 127                            ;                                                                   ;
++--------------------------------------------------------------------+-------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -283,59 +290,53 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------------------------+---------------------------+------------------------------------------------------------+
 ; Register name                                              ; Reason for Removal        ; Registers Removed due to This Register                     ;
 +------------------------------------------------------------+---------------------------+------------------------------------------------------------+
-; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[2]       ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[2]       ;
-;                                                            ; due to stuck port data_in ;                                                            ;
-; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[3]       ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[3]       ;
-;                                                            ; due to stuck port data_in ;                                                            ;
-; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[4]       ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[4]       ;
-;                                                            ; due to stuck port data_in ;                                                            ;
-; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[5]       ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[5]       ;
-;                                                            ; due to stuck port data_in ;                                                            ;
-; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[6]       ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[6]       ;
-;                                                            ; due to stuck port data_in ;                                                            ;
-; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[7]       ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[7]       ;
-;                                                            ; due to stuck port data_in ;                                                            ;
-; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[8]       ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[8]       ;
-;                                                            ; due to stuck port data_in ;                                                            ;
-; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[9]       ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[9]       ;
-;                                                            ; due to stuck port data_in ;                                                            ;
-; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[10]      ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[10]      ;
-;                                                            ; due to stuck port data_in ;                                                            ;
-; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[11]      ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[11]      ;
-;                                                            ; due to stuck port data_in ;                                                            ;
-; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[12]      ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[12]      ;
-;                                                            ; due to stuck port data_in ;                                                            ;
-; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[13]      ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[13]      ;
-;                                                            ; due to stuck port data_in ;                                                            ;
-; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[14]      ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[14]      ;
-;                                                            ; due to stuck port data_in ;                                                            ;
-; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[15]      ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[15]      ;
-;                                                            ; due to stuck port data_in ;                                                            ;
-; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[16]      ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[16]      ;
-;                                                            ; due to stuck port data_in ;                                                            ;
-; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[17]      ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[17]      ;
-;                                                            ; due to stuck port data_in ;                                                            ;
-; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[18]      ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[18]      ;
-;                                                            ; due to stuck port data_in ;                                                            ;
-; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[19]      ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[19]      ;
-;                                                            ; due to stuck port data_in ;                                                            ;
-; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[20]      ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[20]      ;
-;                                                            ; due to stuck port data_in ;                                                            ;
-; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[21]      ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[21]      ;
-;                                                            ; due to stuck port data_in ;                                                            ;
-; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[22]      ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[22]      ;
-;                                                            ; due to stuck port data_in ;                                                            ;
-; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[23]      ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[23]      ;
-;                                                            ; due to stuck port data_in ;                                                            ;
-; fpga_top:inst4|ctrl:control_unit|fpga_instruction_meta[2]  ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_instruction_sync[2]  ;
-;                                                            ; due to stuck port data_in ;                                                            ;
-; fpga_top:inst4|ctrl:control_unit|fpga_instruction_meta[3]  ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_instruction_sync[3]  ;
-;                                                            ; due to stuck port data_in ;                                                            ;
-; fpga_top:inst4|ctrl:control_unit|fpga_instruction_meta[4]  ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_instruction_sync[4]  ;
+; fpga_top:inst4|ctrl:control_unit|fpga_instruction_meta[6]  ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_instruction_sync[6]  ;
 ;                                                            ; due to stuck port data_in ;                                                            ;
 ; fpga_top:inst4|ctrl:control_unit|fpga_instruction_meta[5]  ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_instruction_sync[5]  ;
 ;                                                            ; due to stuck port data_in ;                                                            ;
-; fpga_top:inst4|ctrl:control_unit|fpga_instruction_meta[6]  ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_instruction_sync[6]  ;
+; fpga_top:inst4|ctrl:control_unit|fpga_instruction_meta[4]  ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_instruction_sync[4]  ;
+;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_instruction_meta[2]  ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_instruction_sync[2]  ;
+;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[23]      ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[23]      ;
+;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[22]      ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[22]      ;
+;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[21]      ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[21]      ;
+;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[20]      ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[20]      ;
+;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[19]      ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[19]      ;
+;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[18]      ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[18]      ;
+;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[17]      ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[17]      ;
+;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[16]      ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[16]      ;
+;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[15]      ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[15]      ;
+;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[14]      ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[14]      ;
+;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[13]      ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[13]      ;
+;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[12]      ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[12]      ;
+;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[11]      ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[11]      ;
+;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[10]      ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[10]      ;
+;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[9]       ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[9]       ;
+;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[8]       ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[8]       ;
+;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[7]       ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[7]       ;
+;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[6]       ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[6]       ;
+;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[5]       ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[5]       ;
+;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_status_meta[4]       ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_status_sync[4]       ;
 ;                                                            ; due to stuck port data_in ;                                                            ;
 ; fpga_top:inst4|ctrl:control_unit|fpga_instruction_meta[7]  ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_instruction_sync[7]  ;
 ;                                                            ; due to stuck port data_in ;                                                            ;
@@ -355,6 +356,22 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;                                                            ; due to stuck port data_in ;                                                            ;
 ; fpga_top:inst4|ctrl:control_unit|fpga_instruction_meta[15] ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_instruction_sync[15] ;
 ;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_instruction_meta[16] ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_instruction_sync[16] ;
+;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_instruction_meta[17] ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_instruction_sync[17] ;
+;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_instruction_meta[18] ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_instruction_sync[18] ;
+;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_instruction_meta[19] ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_instruction_sync[19] ;
+;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_instruction_meta[20] ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_instruction_sync[20] ;
+;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_instruction_meta[21] ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_instruction_sync[21] ;
+;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_instruction_meta[22] ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_instruction_sync[22] ;
+;                                                            ; due to stuck port data_in ;                                                            ;
+; fpga_top:inst4|ctrl:control_unit|fpga_instruction_meta[23] ; Stuck at GND              ; fpga_top:inst4|ctrl:control_unit|fpga_instruction_sync[23] ;
+;                                                            ; due to stuck port data_in ;                                                            ;
 +------------------------------------------------------------+---------------------------+------------------------------------------------------------+
 
 
@@ -363,26 +380,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 42    ;
+; Total registers                              ; 19    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 2     ;
+; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                          ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------+
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |fpga_Project|fpga_top:inst4|ctrl:control_unit|data_to_fpga_reg[10] ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |fpga_Project|fpga_top:inst4|ctrl:control_unit|hex_value[17]        ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |fpga_Project|fpga_top:inst4|ctrl:control_unit|hex_value[2]         ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |fpga_Project|fpga_top:inst4|ctrl:control_unit|hex_value[16]        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |fpga_Project|fpga_top:inst4|ctrl:control_unit|hex_value[4] ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |fpga_Project|fpga_top:inst4|ctrl:control_unit|hex_value[0] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------+
@@ -637,26 +652,21 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 42                          ;
-;     ENA               ; 2                           ;
-;     plain             ; 40                          ;
-; arriav_lcell_comb     ; 82                          ;
-;     arith             ; 20                          ;
-;         1 data inputs ; 19                          ;
-;         2 data inputs ; 1                           ;
-;     normal            ; 62                          ;
+; arriav_ff             ; 19                          ;
+;     plain             ; 19                          ;
+; arriav_lcell_comb     ; 47                          ;
+;     normal            ; 47                          ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 8                           ;
-;         2 data inputs ; 6                           ;
-;         3 data inputs ; 6                           ;
-;         4 data inputs ; 26                          ;
-;         5 data inputs ; 12                          ;
-;         6 data inputs ; 3                           ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 5                           ;
+;         3 data inputs ; 4                           ;
+;         4 data inputs ; 10                          ;
+;         5 data inputs ; 20                          ;
 ; boundary_port         ; 67                          ;
 ; generic_pll           ; 1                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 3.00                        ;
-; Average LUT depth     ; 1.90                        ;
+; Average LUT depth     ; 1.53                        ;
 +-----------------------+-----------------------------+
 
 
@@ -675,10 +685,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
-    Info: Processing started: Tue Mar  3 19:37:30 2026
+    Info: Processing started: Thu Mar  5 23:03:30 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off fpga_Project -c fpga_Project
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /users/keric/onedrive/documents/u of g/winter 2026/embed 4560/project/project_main/verilog_srcs/test_status_ctrl.v
+    Info (12023): Found entity 1: test_status_ctrl File: C:/Users/keric/OneDrive/Documents/U of G/Winter 2026/Embed 4560/Project/Project_Main/Verilog_srcs/test_status_ctrl.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file /users/keric/onedrive/documents/u of g/winter 2026/embed 4560/project/project_main/verilog_srcs/fpga_top.v
     Info (12023): Found entity 1: fpga_top File: C:/Users/keric/OneDrive/Documents/U of G/Winter 2026/Embed 4560/Project/Project_Main/Verilog_srcs/fpga_top.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file /users/keric/onedrive/documents/u of g/winter 2026/embed 4560/project/project_main/verilog_srcs/ctrl.v
@@ -694,8 +706,6 @@ Info (12021): Found 1 design units, including 1 entities, in source file /users/
     Info (12023): Found entity 1: test_status File: C:/Users/keric/OneDrive/Documents/U of G/Winter 2026/Embed 4560/Project/Project_Main/Verilog_srcs/test_regs/test_status.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file /users/keric/onedrive/documents/u of g/winter 2026/embed 4560/project/project_main/verilog_srcs/test_regs/test_data_to.v
     Info (12023): Found entity 1: test_data_to File: C:/Users/keric/OneDrive/Documents/U of G/Winter 2026/Embed 4560/Project/Project_Main/Verilog_srcs/test_regs/test_data_to.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /users/keric/onedrive/documents/u of g/winter 2026/embed 4560/project/project_main/verilog_srcs/test_regs/test_data_from.v
-    Info (12023): Found entity 1: test_data_from File: C:/Users/keric/OneDrive/Documents/U of G/Winter 2026/Embed 4560/Project/Project_Main/Verilog_srcs/test_regs/test_data_from.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file fpga_project.bdf
     Info (12023): Found entity 1: fpga_Project
 Info (12021): Found 1 design units, including 1 entities, in source file pll.v
@@ -705,9 +715,9 @@ Info (12021): Found 1 design units, including 1 entities, in source file pll/pll
 Info (12127): Elaborating entity "fpga_Project" for the top level hierarchy
 Info (12128): Elaborating entity "fpga_top" for hierarchy "fpga_top:inst4"
 Info (12128): Elaborating entity "ctrl" for hierarchy "fpga_top:inst4|ctrl:control_unit" File: C:/Users/keric/OneDrive/Documents/U of G/Winter 2026/Embed 4560/Project/Project_Main/Verilog_srcs/fpga_top.v Line: 30
+Warning (10034): Output port "led[5..4]" at ctrl.v(11) has no driver File: C:/Users/keric/OneDrive/Documents/U of G/Winter 2026/Embed 4560/Project/Project_Main/Verilog_srcs/ctrl.v Line: 11
 Info (12128): Elaborating entity "Hex6to7seg" for hierarchy "fpga_top:inst4|Hex6to7seg:hex6" File: C:/Users/keric/OneDrive/Documents/U of G/Winter 2026/Embed 4560/Project/Project_Main/Verilog_srcs/fpga_top.v Line: 42
 Info (12128): Elaborating entity "Hexto7seg" for hierarchy "fpga_top:inst4|Hex6to7seg:hex6|Hexto7seg:HEX_0" File: C:/Users/keric/OneDrive/Documents/U of G/Winter 2026/Embed 4560/Project/Project_Main/Verilog_srcs/Hex6to7seg.v Line: 39
-Info (12128): Elaborating entity "simple_counter" for hierarchy "simple_counter:inst"
 Info (12128): Elaborating entity "pll" for hierarchy "pll:inst2"
 Info (12128): Elaborating entity "pll_0002" for hierarchy "pll:inst2|pll_0002:pll_inst" File: C:/Users/keric/OneDrive/Documents/U of G/Winter 2026/Embed 4560/Project/Project_Main/fpga_Project/pll.v Line: 19
 Info (12128): Elaborating entity "altera_pll" for hierarchy "pll:inst2|pll_0002:pll_inst|altera_pll:altera_pll_i" File: C:/Users/keric/OneDrive/Documents/U of G/Winter 2026/Embed 4560/Project/Project_Main/fpga_Project/pll/pll_0002.v Line: 85
@@ -777,13 +787,13 @@ Info (12133): Instantiated megafunction "pll:inst2|pll_0002:pll_inst|altera_pll:
 Info (12128): Elaborating entity "test_data_to" for hierarchy "test_data_to:inst5"
 Info (12128): Elaborating entity "test_instruction" for hierarchy "test_instruction:inst6"
 Info (12128): Elaborating entity "test_status" for hierarchy "test_status:inst7"
+Info (12128): Elaborating entity "test_status_ctrl" for hierarchy "test_status_ctrl:inst"
+Warning (10762): Verilog HDL Case Statement warning at test_status_ctrl.v(7): can't check case statement for completeness because the case expression has too many possible states File: C:/Users/keric/OneDrive/Documents/U of G/Winter 2026/Embed 4560/Project/Project_Main/Verilog_srcs/test_status_ctrl.v Line: 7
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDR[9]" is stuck at GND
     Warning (13410): Pin "LEDR[8]" is stuck at GND
     Warning (13410): Pin "LEDR[5]" is stuck at GND
     Warning (13410): Pin "LEDR[4]" is stuck at GND
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 11 registers lost all their fanouts during netlist optimizations.
 Warning (20013): Ignored 592 assignments for entity "ghrd_top" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[0] -entity ghrd_top was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[10] -entity ghrd_top was ignored
@@ -1379,19 +1389,22 @@ Warning (20013): Ignored 592 assignments for entity "ghrd_top" -- entity does no
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity ghrd_top -section_id Top was ignored
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 5 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 4 input pin(s) that do not drive logic
+Warning (21074): Design contains 7 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[3]"
     Warning (15610): No output dependent on input pin "KEY[2]"
-    Warning (15610): No output dependent on input pin "SW[4]"
-    Warning (15610): No output dependent on input pin "SW[3]"
+    Warning (15610): No output dependent on input pin "KEY[1]"
+    Warning (15610): No output dependent on input pin "SW[7]"
+    Warning (15610): No output dependent on input pin "SW[6]"
+    Warning (15610): No output dependent on input pin "SW[5]"
     Warning (15610): No output dependent on input pin "SW[2]"
-Info (21057): Implemented 157 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 118 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 52 output pins
-    Info (21061): Implemented 89 logic cells
+    Info (21061): Implemented 50 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 604 warnings
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 608 warnings
     Info: Peak virtual memory: 4893 megabytes
-    Info: Processing ended: Tue Mar  3 19:37:39 2026
+    Info: Processing ended: Thu Mar  5 23:03:39 2026
     Info: Elapsed time: 00:00:09
     Info: Total CPU time (on all processors): 00:00:18
 
