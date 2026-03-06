@@ -1,0 +1,46 @@
+INSTRUCTION_REGISTER_FORMAT (pio_fpga_inst):
+
+BITS[3:0]   = APB_ADDR
+BITS[4]     = LOAD_KEY_MODE
+BITS[5]     = LOAD_DATA_MODE
+BITS[6]     = ENCRYPT_MODE
+
+LOAD_KEY_MODE:
+0 = not ready
+1 = loading key
+
+LOAD_DATA_MODE:
+0 = not ready
+1 = loading data
+
+ENCRYPT_MODE:
+0 = idle
+1 = encrypt
+
+===============================================
+
+STATUS_REGISTER_FORMAT (pio_fpga_status):
+
+BITS[3:0]   = APB_ADDR
+BIT[4]      = APB_IN_USE
+BIT[5]      = LOAD_KEY_ACTIVE
+BIT[6]      = LOAD_DATA_ACTIVE
+BIT[7]      = ENCRYPT_ACTIVE
+
+APB_IN_USE:
+0 = free
+1 = in use
+
+LOAD_KEY_ACTIVE:
+0 = not loading key
+1 = loading key
+
+LOAD_DATA_ACTIVE:
+0 = not loading data
+1 = loading data
+
+ENCRYPT_ACTIVE:
+0 = not encrypting
+1 = encrypting
+
+0x0000000F = ENCRYPTION_COMPLETE

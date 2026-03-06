@@ -7,8 +7,8 @@ always @(*) begin
 	case (sel)
 		2'b00: value = 32'h0000_0000;
 		2'b01: value = 32'h0000_0001;
-		2'b10: value = 32'hA5A5_0001;
-		2'b11: value = 32'h5A5A_0002;
+		2'b10: value = 32'h0000_0003;
+		2'b11: value = 32'h0000_0009;
 		default: value = 32'h0000_0000;
 	endcase
 end
