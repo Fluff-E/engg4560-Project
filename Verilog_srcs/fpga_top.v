@@ -3,7 +3,7 @@ module fpga_top(
     input [9:0] sw,
     input [3:0] key,
     input [31:0] fpga_instruction,
-    input [31:0] fpga_status,
+    output [31:0] fpga_status,
     input [31:0] data_to_fpga,
     output [31:0] data_from_fpga,
     output [6:0] hex0,
@@ -17,7 +17,7 @@ module fpga_top(
 
 wire [23:0] hex_value;
 
-ctrl control_unit (
+fpga_ctrl control_unit (
     .pll_clk(pll_clk),
     .sw(sw),
     .key(key),
@@ -29,7 +29,9 @@ ctrl control_unit (
     .led(led)
 );
 
-//-- aes module -----------
+// add after control tested
+//-- my_aes128_coprocessor.v -----------
+// takes 128-bit key and data, outputs 128-bit encrypted data
 
 Hex6to7seg hex6 (
     .hex_value(hex_value),

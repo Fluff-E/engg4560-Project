@@ -18,6 +18,33 @@ For the AES-128 algorithm, we have the length of the input block, output block, 
 the state as 128-bits, and Nb = 4, Nk = 4, and Nr = 10 (See Figure 4, pp. 13).
 */
 
+`timescale 1 ps / 1 ps
+//input and output interface ports for the APB interface
+module my_aes128_ip (
+		input  wire [5:0]  aps_s0_paddr,   // aps_s0.paddr, 6-bits due to APB byte aligning
+		input  wire        aps_s0_psel,    //       .psel
+		input  wire        aps_s0_penable, //       .penable
+		input  wire        aps_s0_pwrite,  //       .pwrite
+		input  wire [31:0] aps_s0_pwdata,  //       .pwdata
+		output wire [31:0] aps_s0_prdata,  //       .prdata
+		output wire        aps_s0_pready,  //       .pready
+		input  wire        clock_clk,      //  clock.clk
+		input  wire        reset_reset     //  reset.reset
+	);
+
+/* This module implements the memory mapped hardware interface to
+ the AES coprocessor module. 
+ the hardware interface must be implemented as part of the project requirements
+*/
+			
+	assign aps_s0_pready = 1'b1; // no wait states required
+	...
+	
+// Follow the laboratory manual information for implementing the hardware interface	
+	
+endmodule
+
+//This is the AES coprocessor module code implementation
 module my_aes128_coprocessor ( input wire [127:0] ptext,
 					input wire [127:0] key,
 					output wire [127:0] ctext_aes
