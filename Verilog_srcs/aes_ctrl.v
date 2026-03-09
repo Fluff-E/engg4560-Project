@@ -1,1 +1,0 @@
-// state machine controller interfaces with aes_top and directs data to aes processor

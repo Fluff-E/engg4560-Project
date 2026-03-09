@@ -15,8 +15,8 @@
    <frequency preferredWidth="287" />
   </columns>
  </clocktable>
- <window width="1342" height="697" x="320" y="152" />
- <library expandedCategories="Library,Project,Project/My Custom Functions" />
+ <window width="2576" height="1523" x="320" y="152" />
+ <library expandedCategories="Project/My Custom Functions,Library,Project" />
  <hdlexample language="VERILOG" />
  <generation block_symbol_file="0" />
 </preferences>

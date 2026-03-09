@@ -201,8 +201,6 @@ int main() {
         printf("\n\n");
     }
 
-
-
     //====== MANUAL TEST ======================================================
     // for (ii = 0; ii < 32; ii+=4){
     //     printf("Enter coprocessor memory data in hexadecimal, to write in location = %x\n", ii);
