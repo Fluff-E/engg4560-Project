@@ -2,15 +2,29 @@
 module aes_top (
     input wire clk,
     input wire reset,
-    input wire instruction,
-    output wire status,
+    input wire [31:0] instruction,
+    output wire [31:0] status,
     input wire [127:0] key,
     input wire [127:0] ptext,
     output wire [127:0] ctext
 );
 
-// Instantiate aes_ctrl
+wire [1:0] aes_mux_sel;
 
-// Instantiate AES coprocessor
+// Instantiate aes_ctrl.v
+aes_ctrl u_aes_ctrl (
+    .clk         (clk),
+    .reset       (reset),
+    .instruction (instruction),
+    .status      (status),
+    .aes_mux_sel (aes_mux_sel)
+);
+
+// Instantiate my_aes_coprocessor.v
+my_aes128_coprocessor u_my_aes128_coprocessor (
+    .key       (key),
+    .ptext     (ptext),
+    .ctext_aes (ctext)
+);
 
 endmodule
