@@ -24,11 +24,22 @@ module eric_ip2 (
 	reg [31:0] data_out [0:15];
 	reg [31:0] data_temp;
 	wire [5:0] addr;
+	wire [31:0] instruction;
+	wire [31:0] aes_status;
+	wire [127:0] key;
+	wire [127:0] ptext;
+	wire [127:0] aes_ctext;
 
 	assign addr = aps_s0_paddr;
 	assign aps_s0_pready = 1'b1; // slave always ready, no wait states
 	assign aps_s0_prdata = data_temp;
 
+	// Drive nets for aes_top module inputs and outputs.
+	assign instruction = data_out[0];
+	assign key = {data_out[5], data_out[4], data_out[3], data_out[2]};
+	assign ptext = {data_out[9], data_out[8], data_out[7], data_out[6]};
+
+	// APB Read logic: read from data_out registers on APB read.
 	always @ (posedge clock_clk)
 	begin
 		if (aps_s0_psel && (~aps_s0_pwrite) && aps_s0_pready)
@@ -55,6 +66,7 @@ module eric_ip2 (
 		end
 	end
 
+	// APB Write logic: write to data_out registers on APB write.
 	always @ (posedge clock_clk or posedge reset_reset)
 	begin
 		if(reset_reset == 1)
@@ -76,11 +88,20 @@ module eric_ip2 (
 			data_out[14] <= 32'b00000000000000000000000000000000;
 			data_out[15] <= 32'b00000000000000000000000000000000;
 		end
-		else if (aps_s0_psel && aps_s0_pwrite && aps_s0_pready)
+		else
 		begin
+			// Capture AES outputs into APB-visible status/ciphertext registers.
+			data_out[1]  <= aes_status;
+			data_out[10] <= aes_ctext[31:0];
+			data_out[11] <= aes_ctext[63:32];
+			data_out[12] <= aes_ctext[95:64];
+			data_out[13] <= aes_ctext[127:96];
+
+			if (aps_s0_psel && aps_s0_pwrite && aps_s0_pready)
+			begin
 			case(addr)
 			6'b000000 : data_out[0]  <= aps_s0_pwdata;
-			6'b000100 : data_out[1]  <= aps_s0_pwdata;
+			//6'b000100 : data_out[1]  <= aps_s0_pwdata;
 			6'b001000 : data_out[2]  <= aps_s0_pwdata;
 			6'b001100 : data_out[3]  <= aps_s0_pwdata;
 			6'b010000 : data_out[4]  <= aps_s0_pwdata;
@@ -89,13 +110,14 @@ module eric_ip2 (
 			6'b011100 : data_out[7]  <= aps_s0_pwdata;
 			6'b100000 : data_out[8]  <= aps_s0_pwdata;
 			6'b100100 : data_out[9]  <= aps_s0_pwdata;
-			6'b101000 : data_out[10] <= aps_s0_pwdata;
-			6'b101100 : data_out[11] <= aps_s0_pwdata;
-			6'b110000 : data_out[12] <= aps_s0_pwdata;
-			6'b110100 : data_out[13] <= aps_s0_pwdata;
+			//6'b101000 : data_out[10] <= aps_s0_pwdata;
+			//6'b101100 : data_out[11] <= aps_s0_pwdata;
+			//6'b110000 : data_out[12] <= aps_s0_pwdata;
+			//6'b110100 : data_out[13] <= aps_s0_pwdata;
 			6'b111000 : data_out[14] <= aps_s0_pwdata;
 			6'b111100 : data_out[15] <= aps_s0_pwdata;	
 			endcase
+			end
 		end
 	end
 
@@ -103,11 +125,11 @@ module eric_ip2 (
 	aes_top u_aes_top (
 		.clk         (clock_clk),
 		.reset       (reset_reset),
-		.instruction (data_out[0]),
-		.status      (data_out[1]),
-		.key         ({data_out[5], data_out[4], data_out[3], data_out[2]}),
-		.ptext       ({data_out[9], data_out[8], data_out[7], data_out[6]}),
-		.ctext       ({data_out[13], data_out[12], data_out[11], data_out[10]})
+		.instruction (instruction),
+		.status      (aes_status),
+		.key         (key),
+		.ptext       (ptext),
+		.ctext       (aes_ctext)
 	);
 
 endmodule
