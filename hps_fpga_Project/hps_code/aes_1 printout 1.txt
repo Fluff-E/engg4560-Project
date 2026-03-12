@@ -1,0 +1,137 @@
+root@de1soclinux:~/mar11# ./aes_1
+Calling fopen
+Creating mmap
+Starting while loop, base address: 0xb6015000, virtual_base = 0xb2e15000
+In Loop, loop_count:0, led_mask:1, led_direction:0
+In Loop, loop_count:0, led_mask:2, led_direction:0
+In Loop, loop_count:0, led_mask:4, led_direction:0
+In Loop, loop_count:0, led_mask:8, led_direction:0
+In Loop, loop_count:0, led_mask:16, led_direction:0
+In Loop, loop_count:0, led_mask:32, led_direction:0
+In Loop, loop_count:0, led_mask:64, led_direction:0
+In Loop, loop_count:0, led_mask:128, led_direction:0
+In Loop, loop_count:0, led_mask:256, led_direction:0
+In Loop, loop_count:0, led_mask:512, led_direction:1
+In Loop, loop_count:0, led_mask:256, led_direction:1
+In Loop, loop_count:0, led_mask:128, led_direction:1
+In Loop, loop_count:0, led_mask:64, led_direction:1
+In Loop, loop_count:0, led_mask:32, led_direction:1
+In Loop, loop_count:0, led_mask:16, led_direction:1
+In Loop, loop_count:0, led_mask:8, led_direction:1
+In Loop, loop_count:0, led_mask:4, led_direction:1
+In Loop, loop_count:0, led_mask:2, led_direction:1
+Writing test data: 10101010 to memory address = 0xb6015100
+Writing test data: 20202020 to memory address = 0xb6015100
+Writing test data: 30303030 to memory address = 0xb6015104
+Writing test data: 40404040 to memory address = 0xb6015108
+Writing test data: 50505050 to memory address = 0xb601510c
+Writing test data: 60606060 to memory address = 0xb6015110
+Writing test data: 70707070 to memory address = 0xb6015114
+Writing test data: 80808080 to memory address = 0xb6015118
+Writing test data: 90909090 to memory address = 0xb601511c
+Writing test data: a0a0a0a0 to memory address = 0xb6015120
+Writing test data: b0b0b0b0 to memory address = 0xb6015124
+Writing test data: c0c0c0c0 to memory address = 0xb6015128
+Writing test data: d0d0d0d0 to memory address = 0xb601512c
+Writing test data: e0e0e0e0 to memory address = 0xb6015130
+Writing test data: f0f0f0f0 to memory address = 0xb6015134
+Writing test data: 1010100 to memory address = 0xb6015138
+Reading memory locations
+Reading test data: 10101010 from memory address = 0xb6015100
+Reading test data: 0 from memory address = 0xb6015104
+Reading test data: 30303030 from memory address = 0xb6015108
+Reading test data: 40404040 from memory address = 0xb601510c
+Reading test data: 50505050 from memory address = 0xb6015110
+Reading test data: 60606060 from memory address = 0xb6015114
+Reading test data: 70707070 from memory address = 0xb6015118
+Reading test data: 80808080 from memory address = 0xb601511c
+Reading test data: 90909090 from memory address = 0xb6015120
+Reading test data: a0a0a0a0 from memory address = 0xb6015124
+Reading test data: f9a6d33f from memory address = 0xb6015128
+Reading test data: 665798d8 from memory address = 0xb601512c
+Reading test data: 38540ebc from memory address = 0xb6015130
+Reading test data: ac20a663 from memory address = 0xb6015134
+Reading test data: f0f0f0f0 from memory address = 0xb6015138
+Reading test data: 1010100 from memory address = 0xb601513c
+Coprocessor is in reset state
+Coprocessor is ready to load key
+Enter aes key[31:0] in hexadecimal, to write in location = 8
+e0370734
+Enter aes key[63:32] in hexadecimal, to write in location = c
+31^V^C
+root@de1soclinux:~/mar11# ./aes_1
+Calling fopen
+Creating mmap
+Starting while loop, base address: 0xb6086000, virtual_base = 0xb2e86000
+In Loop, loop_count:0, led_mask:1, led_direction:0
+In Loop, loop_count:0, led_mask:2, led_direction:0
+In Loop, loop_count:0, led_mask:4, led_direction:0
+In Loop, loop_count:0, led_mask:8, led_direction:0
+In Loop, loop_count:0, led_mask:16, led_direction:0
+In Loop, loop_count:0, led_mask:32, led_direction:0
+In Loop, loop_count:0, led_mask:64, led_direction:0
+In Loop, loop_count:0, led_mask:128, led_direction:0
+In Loop, loop_count:0, led_mask:256, led_direction:0
+In Loop, loop_count:0, led_mask:512, led_direction:1
+In Loop, loop_count:0, led_mask:256, led_direction:1
+In Loop, loop_count:0, led_mask:128, led_direction:1
+In Loop, loop_count:0, led_mask:64, led_direction:1
+In Loop, loop_count:0, led_mask:32, led_direction:1
+In Loop, loop_count:0, led_mask:16, led_direction:1
+In Loop, loop_count:0, led_mask:8, led_direction:1
+In Loop, loop_count:0, led_mask:4, led_direction:1
+In Loop, loop_count:0, led_mask:2, led_direction:1
+Writing test data: 10101010 to memory address = 0xb6086100
+Writing test data: 20202020 to memory address = 0xb6086100
+Writing test data: 30303030 to memory address = 0xb6086104
+Writing test data: 40404040 to memory address = 0xb6086108
+Writing test data: 50505050 to memory address = 0xb608610c
+Writing test data: 60606060 to memory address = 0xb6086110
+Writing test data: 70707070 to memory address = 0xb6086114
+Writing test data: 80808080 to memory address = 0xb6086118
+Writing test data: 90909090 to memory address = 0xb608611c
+Writing test data: a0a0a0a0 to memory address = 0xb6086120
+Writing test data: b0b0b0b0 to memory address = 0xb6086124
+Writing test data: c0c0c0c0 to memory address = 0xb6086128
+Writing test data: d0d0d0d0 to memory address = 0xb608612c
+Writing test data: e0e0e0e0 to memory address = 0xb6086130
+Writing test data: f0f0f0f0 to memory address = 0xb6086134
+Writing test data: 1010100 to memory address = 0xb6086138
+Reading memory locations
+Reading test data: 10101010 from memory address = 0xb6086100
+Reading test data: 3 from memory address = 0xb6086104
+Reading test data: 30303030 from memory address = 0xb6086108
+Reading test data: 40404040 from memory address = 0xb608610c
+Reading test data: 50505050 from memory address = 0xb6086110
+Reading test data: 60606060 from memory address = 0xb6086114
+Reading test data: 70707070 from memory address = 0xb6086118
+Reading test data: 80808080 from memory address = 0xb608611c
+Reading test data: 90909090 from memory address = 0xb6086120
+Reading test data: a0a0a0a0 from memory address = 0xb6086124
+Reading test data: f9a6d33f from memory address = 0xb6086128
+Reading test data: 665798d8 from memory address = 0xb608612c
+Reading test data: 38540ebc from memory address = 0xb6086130
+Reading test data: ac20a663 from memory address = 0xb6086134
+Reading test data: f0f0f0f0 from memory address = 0xb6086138
+Reading test data: 1010100 from memory address = 0xb608613c
+Coprocessor is in reset state
+Coprocessor is ready to load key
+Enter aes key[31:0] in hexadecimal, to write in location = 8
+09cf4f3c
+Enter aes key[63:32] in hexadecimal, to write in location = c
+abf71588
+Enter aes key[95:64] in hexadecimal, to write in location = 10
+28aed2a6
+Enter aes key[127:96] in hexadecimal, to write in location = 14
+2b7e1516
+Coprocessor is ready to load data
+Enter aes data[31:0] in hexadecimal, to write in location = 18
+e0370734
+Enter aes data[63:32] in hexadecimal, to write in location = 1c
+313198a2
+Enter aes data[95:64] in hexadecimal, to write in location = 20
+885a308d
+Enter aes data[127:96] in hexadecimal, to write in location = 24
+3243f6a8
+
+09cf4f3c

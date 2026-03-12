@@ -12,7 +12,7 @@
 #define HW_REGS_SPAN ( 0x04000000 ) 
 #define HW_REGS_MASK ( HW_REGS_SPAN - 1 ) 
 
-// Defintions of pio_fpga_inst and pio_fpga_status functions
+// Defintions of instruction and status functions
 #define INST_RESET 0x00000000
 #define INST_SIGNAL_LOAD_KEY 0x00000001
 #define INST_LOADING_KEY 0x00000003
@@ -121,10 +121,10 @@ int main() {
     // Test read and write to custom IP memory mapped registers
     int test_data= 0x10101010;
     for (ii = 0; ii < 64; ii+=4){
-        printf("Writing test data: %x to memory address = %p\n", test_data, apb_32x16);
         mm_reg = ii;
         apb_32x16 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + ERIC_IP2_0_BASE + mm_reg) &
             (unsigned long)(HW_REGS_MASK));
+		printf("Writing test data: %x to memory address = %p\n", test_data, apb_32x16);
         *(uint32_t *)apb_32x16 = test_data;
         test_data += 0x10101010;
     }
@@ -177,10 +177,12 @@ int main() {
         }
 
         // set instruction to start encryption, wait acknowledge
+		printf("Changing instruction to encrypt.");
         apb_32x16 = set_apb_pointer(virtual_base, INSTRUCTION_BASE);
         *(uint32_t *)apb_32x16 = INST_START_ENCRYPTION;
         apb_32x16 = set_apb_pointer(virtual_base, STATUS_BASE);
-        while(*(uint32_t *)apb_32x16 != STATUS_ENCRYPTING);
+		
+        //while(*(uint32_t *)apb_32x16 != STATUS_ENCRYPTING);
         printf("Coprocessor has started encryption\n");
         while(*(uint32_t *)apb_32x16 != STATUS_DONE);
         printf("Coprocessor has completed encryption\n");
@@ -190,7 +192,7 @@ int main() {
             apb_32x16 = set_apb_pointer(virtual_base, AES_CTEXT_BASE + ii);
             mem_data = *(uint32_t *)apb_32x16;
             aes_data[j] = mem_data;
-            printf("Memory data read [%x]: %x\n", AES_CTEXT_BASE + ii, mem_data);
+            printf("Memory data read [%x]: %08x\n", AES_CTEXT_BASE + ii, mem_data);
         }
 
         // Print 128-bit encrypted value MSW first
